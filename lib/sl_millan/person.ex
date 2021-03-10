@@ -24,7 +24,8 @@ defmodule SlMillan.Person do
           linkedin_url: String.t(),
           title: String.t(),
           person_company_name: String.t(),
-          locale: String.t()
+          locale: String.t(),
+          extra: any()
         }
 
   defstruct [
@@ -47,7 +48,8 @@ defmodule SlMillan.Person do
     :linkedin_url,
     :title,
     :person_company_name,
-    :locale
+    :locale,
+    :extra
   ]
 
   @date_fields [

@@ -2,6 +2,7 @@ defmodule SlMillan.PersonTest do
   use ExUnit.Case, async: true
 
   alias SlMillan.Person
+  alias SlMillan.Helpers.Tools
 
   @valid_person %Person{
     created_at: ~U[2020-01-10 20:44:04.134541Z],
@@ -23,7 +24,8 @@ defmodule SlMillan.PersonTest do
     phone_extension: nil,
     secondary_email_address: "sakatius@gmail.com",
     title: "Software Engineer",
-    updated_at: ~U[2020-01-20 09:46:19.961197Z]
+    updated_at: ~U[2020-01-20 09:46:19.961197Z],
+    extra: nil
   }
 
   @sales_loft_v2_person %{
@@ -90,23 +92,12 @@ defmodule SlMillan.PersonTest do
 
   def sales_loft_v2_person_fixture() do
     @sales_loft_v2_person
-    |> keys_to_atoms()
+    |> Tools.keys_to_atoms()
   end
 
   def person_fixture() do
     @valid_person
   end
-
-  defp keys_to_atoms(string_key_map) when is_map(string_key_map) do
-    for {key, val} <- string_key_map, into: %{}, do: {String.to_atom(key), keys_to_atoms(val)}
-  end
-
-  defp keys_to_atoms(string_key_list) when is_list(string_key_list) do
-    string_key_list
-    |> Enum.map(&keys_to_atoms/1)
-  end
-
-  defp keys_to_atoms(value), do: value
 
   test "encode/1 returns a Person from SalesLoft person map" do
     person = person_fixture()
@@ -136,5 +127,6 @@ defmodule SlMillan.PersonTest do
     assert person.secondary_email_address === encoded_person.secondary_email_address
     assert person.title === encoded_person.title
     assert person.updated_at === encoded_person.updated_at
+    assert person.extra === encoded_person.extra
   end
 end
