@@ -40,7 +40,10 @@ defmodule SlMillan.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:timex, "~> 3.6.4"},
+      {:tesla, "~> 1.4.0"},
+      {:mox, "~> 1.0.0", only: :test}
     ]
   end
 

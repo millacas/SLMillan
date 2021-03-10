@@ -65,3 +65,23 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# SalesLoft API config
+sl_api_key =
+  System.get_env("SL_API_KEY") ||
+    raise """
+    environment variable SL_API_KEY is missing.
+    """
+
+sl_api_base_url =
+  System.get_env("SL_API_BASE_URL") ||
+    raise """
+    environment variable SL_API_BASE_URL is missing.
+    """
+
+config :sl_millan, :sl_api,
+  api_key: sl_api_key,
+  api_base_url: sl_api_base_url
+
+config :tesla, :adapter,
+  Tesla.Adapter.Hackney

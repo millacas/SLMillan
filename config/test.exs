@@ -8,3 +8,7 @@ config :sl_millan, SlMillanWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :sl_millan, :sl_api,
+  api_key: "api-key",
+  api_base_url: "https://someapi.com"
