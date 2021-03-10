@@ -1,0 +1,8 @@
+<h3>
+    Duplicates for:
+</h3>
+<h4>
+    <%= @target_person.display_name %> &ndash; <%= @target_person.email_address %>
+</h4>
+
+<%= render "people_table.html", conn: @conn, people: @posible_duplicates %>

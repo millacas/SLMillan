@@ -1,0 +1,12 @@
+<tr>
+	<td><%= @person.email_address %></td>
+	<td><%= @person.display_name %></td>
+    <td><%= @person.title %></td>
+    <td><%= friendly_time(@person.created_at) %></td>
+    <td><%= friendly_time(@person.updated_at) %></td>
+    <td>
+        <%= link to: Routes.people_path(@conn, :duplicates, @person.id), method: "get" do %>
+            Duplicates
+        <% end %>
+    </td>
+</tr>

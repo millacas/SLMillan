@@ -1,0 +1,16 @@
+<table>
+	<thead>
+		<tr>
+			<th>Character</th>
+			<th>Count</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= for {char, count} <- Enum.sort(@counted_characters, &(elem(&1, 1) >= elem(&2, 1))) do %>
+            <tr>
+                <td><%= char %></td>
+                <td><%= count %></td>
+            </tr>
+        <% end %>
+	</tbody>
+</table>

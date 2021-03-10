@@ -1,0 +1,4 @@
+<%= button to: Routes.people_path(@conn, :counter), method: "get" do %>
+    Character Count
+<% end %>
+<%= render "people_table.html", conn: @conn, people: @people %>

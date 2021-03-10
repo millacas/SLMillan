@@ -1,0 +1,17 @@
+<table>
+	<thead>
+		<tr>
+			<th>EMail</th>
+			<th>Full Name</th>
+			<th>Job Title</th>
+			<th>Created At</th>
+			<th>Update At</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= for person <- @people do %>
+            <%= render "person_row.html", conn: @conn, person: person %>
+        <% end %>
+	</tbody>
+</table>

@@ -16,7 +16,9 @@ defmodule SlMillanWeb.Router do
   scope "/", SlMillanWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", PeopleController, :index
+    get "/counter", PeopleController, :counter
+    get "/:id/duplicates", PeopleController, :duplicates
   end
 
   # Other scopes may use custom stacks.
